@@ -1,5 +1,7 @@
 <?php
 
+require '../app/core/class_router.php';
+
 echo "Hello from localhost <br>";
 echo 'Server request: ' . $_SERVER["QUERY_STRING"];
 // exit("This is exit command");
