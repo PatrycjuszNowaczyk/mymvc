@@ -2,8 +2,16 @@
 
 require '../app/core/class_router.php';
 
-echo "Hello from localhost <br>";
-echo 'Server request: ' . $_SERVER["QUERY_STRING"];
-// exit("This is exit command");
-// $domain = $_SERVER;
-var_dump($_SERVER);
+$oRouter = new Router();
+
+$oRouter->add('',['controller'=>'Home','action'=>'index']);
+$oRouter->add('posts',['controller'=>'Posts','action'=>'index']);
+$oRouter->add('posts/new',['controller'=>'Posts','action'=>'new_post']);
+
+$url = $_SERVER['QUERY_STRING'];
+if ($oRouter->is_matched($url)){
+    var_dump($oRouter->get_parameters());
+}
+else{
+    echo "Site not found for: " . $url;
+}
