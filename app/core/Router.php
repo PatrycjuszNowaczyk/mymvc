@@ -5,27 +5,19 @@ class Router
 
     protected $routes = [];
     protected $params = [];
+    protected $matches = [];
 
     /*adding next routes*/
-    public function add($route)
+    public function add($route, $params = [])
     {
         $reg_ex = '/\//';
         $reg_ex_replace = '\\/';
-        preg_replace($reg_ex, $reg_ex_replace, $route);
-        var_dump($route);
-        exit;
-        $reg_ex = "/^\{([a-z-]+)\}$/";
-        $reg_ex_replace = "(?P<\1>[a-z-]+)";
-        preg_replace($reg_ex, $reg_ex_replace, $route);
+        $route = preg_replace($reg_ex, $reg_ex_replace, $route);
+        $reg_ex = '/^\{([a-z-]+)\}$/';
+        $reg_ex_replace = '(?P<\1>[a-z-]+)';
+        $route = preg_replace($reg_ex, $reg_ex_replace, $route);
         $route = '/^' . $route . '$/';
-        // $this->routes = $route;
-        array_push($this->routes, $route);
-    }
-
-    /*get all routes from router*/
-    public function get_routes()
-    {
-        return $this->routes;
+        $this->routes[$route] = $params;
     }
 
     /*checking does url exist in routing table*/
