@@ -7,9 +7,19 @@ class Router
     protected $params = [];
 
     /*adding next routes*/
-    public function add($route, $params)
+    public function add($route)
     {
-        $this->routes[$route] = $params;
+        $reg_ex = '/\//';
+        $reg_ex_replace = '\\/';
+        preg_replace($reg_ex, $reg_ex_replace, $route);
+        var_dump($route);
+        exit;
+        $reg_ex = "/^\{([a-z-]+)\}$/";
+        $reg_ex_replace = "(?P<\1>[a-z-]+)";
+        preg_replace($reg_ex, $reg_ex_replace, $route);
+        $route = '/^' . $route . '$/';
+        // $this->routes = $route;
+        array_push($this->routes, $route);
     }
 
     /*get all routes from router*/
