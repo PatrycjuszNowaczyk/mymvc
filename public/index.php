@@ -12,9 +12,9 @@ $oRouter->add('{controller}/{id:\d+}/{action}');
 
 var_dump($oRouter->get_routes());
 
-// $url = $_SERVER['QUERY_STRING'];
-// if ($oRouter->is_matched($url)) {
-//     var_dump($oRouter->get_parameters());
-// } else {
-//     echo "Site not found for: " . $url;
-// }
+$url = $_SERVER['QUERY_STRING'];
+if ($oRouter->is_matched($url)) {
+    var_dump($oRouter->get_parameters());
+} else {
+    echo "Site not found for: " . $url;
+}
