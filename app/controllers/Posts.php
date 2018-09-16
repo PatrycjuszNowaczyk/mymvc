@@ -2,7 +2,9 @@
 
 namespace App\Controllers;
 
-class Posts {
+class Posts extends \Core\Controller {
+
+    /*methods*/
     public function index() {
         echo 'This is index method at Posts class.';
     }
@@ -12,6 +14,7 @@ class Posts {
     }
 
     public function edit() {
-        echo 'This is edit method at Posts class.';
+        echo 'This is edit method at Posts class.<br>';
+        echo htmlspecialchars(print_r($this->aParams, true));
     }
 }

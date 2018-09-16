@@ -20,10 +20,10 @@ $sUrl = $_SERVER['QUERY_STRING'];
 /*objects*/
 $oRouter = new Core\Router();
 
-$oRouter->add('', ['controller' => 'home', 'action' => 'index']);
-$oRouter->add('posts', ['controller' => 'posts', 'action' => 'index']);
-$oRouter->add('admin/{controller}/{action}');
-$oRouter->add('{controller}/{action}');
-$oRouter->add('{controller}/{id:\d+}/{action}');
+$oRouter->addRoute('', ['controller' => 'home', 'action' => 'index']);
+$oRouter->addRoute('posts', ['controller' => 'posts', 'action' => 'index']);
+$oRouter->addRoute('admin/{controller}/{action}');
+$oRouter->addRoute('{controller}/{action}');
+$oRouter->addRoute('{controller}/{id:\d+}/{action}');
 
 $oRouter->dispatch($sUrl);

@@ -4,12 +4,13 @@ namespace Core;
 
 class Router {
 
-    protected $_aRoutes = [];
-    protected $_aParams = [];
-    protected $_aMatches = [];
+    /*variables*/
+    protected $aRoutes = [];
+    protected $aParams = [];
+    protected $aMatches = [];
 
     /*adding next routes*/
-    public function add($sRoute, $aParams = []) {
+    public function addRoute($sRoute, $aParams = []) {
 
         $reg_ex = '/\//';
         $reg_ex_replace = '\\/';
@@ -21,21 +22,21 @@ class Router {
         $reg_ex_replace = '(?P<\1>[a-z-]+)';
         $sRoute = preg_replace($reg_ex, $reg_ex_replace, $sRoute);
         $sRoute = '/^' . $sRoute . '$/';
-        $this->routes[$sRoute] = $aParams;
+        $this->aRoutes[$sRoute] = $aParams;
     }
 
     /*checking does url exist in routing table*/
     public function is_matched($sUrl) {
 
         $sUrl = preg_replace('/[?&].*/', '', $sUrl);
-        foreach ($this->routes as $sRoute => $aParams) {
+        foreach ($this->aRoutes as $sRoute => $aParams) {
             if (preg_match($sRoute, $sUrl, $aMatches)) {
                 foreach ($aMatches as $key => $value) {
                     if (is_string($key)) {
                         $aParams[$key] = $value;
                     }
                 }
-                $this->params = $aParams;
+                $this->aParams = $aParams;
                 return true;
             }
         }
@@ -46,12 +47,14 @@ class Router {
     public function dispatch($sUrl) {
 
         if ($this->is_matched($sUrl)) {
-            $sController = $this->params['controller'];
+            $sController = $this->aParams['controller'];
             $sController = $this->convertToCamelCase($sController);
             $sController = "App\Controllers\\$sController";
             if (class_exists($sController)) {
-                $oController = new $sController();
-                $sAction = $this->params['action'];
+                $oController = new $sController($this->aParams);
+                var_dump($oController);
+                exit;
+                $sAction = $this->aParams['action'];
                 $sAction = $this->convertToCamelBack($sAction);
                 if (is_callable([$oController, $sAction])) {
                     $oController->$sAction();
@@ -68,6 +71,7 @@ class Router {
 
     /*convert to CamelCase*/
     public function convertToCamelCase($sConvert) {
+
         $sConvert = str_replace('-', ' ', $sConvert);
         $sConvert = ucwords($sConvert);
         $sConvert = str_replace(' ', '', $sConvert);
@@ -76,6 +80,7 @@ class Router {
 
     /*convert to camelBack*/
     public function convertToCamelBack($sConvert) {
+
         $sConvert = str_replace('-', ' ', $sConvert);
         $sConvert = ucwords($sConvert);
         $sConvert = str_replace(' ', '', $sConvert);
@@ -85,11 +90,11 @@ class Router {
 
     /*get all routes from router*/
     public function get_routes() {
-        return $this->routes;
+        return $this->aRoutes;
     }
 
     /*get parameters from current url*/
     public function get_parameters() {
-        return $this->params;
+        return $this->aParams;
     }
 }
