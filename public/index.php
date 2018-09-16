@@ -4,11 +4,8 @@ require_once '../app/core/Router.php';
 
 $oRouter = new Router();
 
-// $oRouter->add('',['controller'=>'Home','action'=>'index']);
-// $oRouter->add('posts',['controller'=>'Posts','action'=>'index']);
-// $oRouter->add('posts/new',['controller'=>'Posts','action'=>'new_post']);
-
-$oRouter->add('');
+$oRouter->add('',['controller'=>'home','action'=>'index']);
+$oRouter->add('posts',['controller'=>'posts','action'=>'index']);
 $oRouter->add('{controller}/{action}');
 $oRouter->add('{controller}/{id:\d+}/{action}');
 
