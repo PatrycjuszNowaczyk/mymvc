@@ -10,6 +10,9 @@ class Router
     /*adding next routes*/
     public function add($route, $params = [])
     {
+        $reg_ex = '/\s*/';
+        $reg_ex_replace = '';
+        $route = preg_replace($reg_ex, $reg_ex_replace, $route);
         $reg_ex = '/\//';
         $reg_ex_replace = '\\/';
         $route = preg_replace($reg_ex, $reg_ex_replace, $route);
@@ -23,11 +26,18 @@ class Router
     /*checking does url exist in routing table*/
     public function is_matched($url)
     {
+        if ($url == '') {
+            $this->params['controller'] = 'home';
+            $this->params['action'] = 'index';
+        }
         foreach ($this->routes as $route => $params) {
             if (preg_match($route, $url, $matches)) {
                 foreach ($matches as $key => $value) {
                     if (is_string($key)) {
                         $params[$key] = $value;
+                    } elseif ($key == '') {
+                        $params['controller'] = 'home';
+                        $params['action'] = 'index';
                     }
                 }
                 $this->params = $params;

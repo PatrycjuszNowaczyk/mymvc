@@ -7,12 +7,17 @@ $oRouter = new Router();
 // $oRouter->add('',['controller'=>'Home','action'=>'index']);
 // $oRouter->add('posts',['controller'=>'Posts','action'=>'index']);
 // $oRouter->add('posts/new',['controller'=>'Posts','action'=>'new_post']);
+
+$oRouter->add('');
 $oRouter->add('{controller}/{action}');
 $oRouter->add('{controller}/{id:\d+}/{action}');
 
+echo "Routes table:<br>";
 var_dump($oRouter->get_routes());
 
 $url = $_SERVER['QUERY_STRING'];
+echo 'Url:<br>';
+var_dump($url);
 if ($oRouter->is_matched($url)) {
     var_dump($oRouter->get_parameters());
 } else {
