@@ -1,14 +1,24 @@
 <?php
 
-/*include classes*/
-require_once '../app/core/Router.php';
-require_once '../app/controllers/Posts.php';
+/* *
+ *This MVC is made thanks Dave Hollingworth tutorial:
+ *WRITE PHP LIKE A PRO: BUILD A PHP MVC FRAMEWORK FROM SCRATCH
+ */
+
+/*autoloader classes*/
+spl_autoload_register(function ($sClass) {
+    $sRoot = dirname(__DIR__);
+    $sFile = $sRoot . '/' . str_replace('\\', '/', $sClass) . '.php';
+    if (is_readable($sFile)) {
+        require_once $sFile;
+    }
+});
 
 /*variables*/
 $sUrl = $_SERVER['QUERY_STRING'];
 
 /*objects*/
-$oRouter = new Router();
+$oRouter = new Core\Router();
 
 $oRouter->add('', ['controller' => 'home', 'action' => 'index']);
 $oRouter->add('posts', ['controller' => 'posts', 'action' => 'index']);

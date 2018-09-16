@@ -1,5 +1,7 @@
 <?php
 
+namespace Core;
+
 class Router {
 
     protected $_aRoutes = [];
@@ -44,6 +46,7 @@ class Router {
         if ($this->is_matched($sUrl)) {
             $sController = $this->params['controller'];
             $sController = $this->convertToCamelCase($sController);
+            $sController = "App\Controllers\\$sController";
             if (class_exists($sController)) {
                 $oController = new $sController();
                 $sAction = $this->params['action'];
