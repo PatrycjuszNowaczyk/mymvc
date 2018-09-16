@@ -4,10 +4,20 @@ namespace Core;
 
 class Router {
 
-    /*variables*/
+    /*VARIABLES*/
+    //-------------------------------------------------------------
     protected $aRoutes = [];
     protected $aParams = [];
     protected $aMatches = [];
+
+    /*METHODS*/
+    //-------------------------------------------------------------
+
+    /*removes variables from $_GET url and leave only parameters*/
+    public function rmvVarUrl($sUrl) {
+        $sUrl = preg_replace('/[?&].*/', '', $sUrl);
+        return $sUrl;
+    }
 
     /*adding next routes*/
     public function addRoute($sRoute, $aParams = []) {
@@ -28,7 +38,6 @@ class Router {
     /*checking does url exist in routing table*/
     public function is_matched($sUrl) {
 
-        $sUrl = preg_replace('/[?&].*/', '', $sUrl);
         foreach ($this->aRoutes as $sRoute => $aParams) {
             if (preg_match($sRoute, $sUrl, $aMatches)) {
                 foreach ($aMatches as $key => $value) {
@@ -43,9 +52,9 @@ class Router {
         return false;
     }
 
-    /*dispatch current url to right controller and action*/
+    /*dispatches current url to right controller and action*/
     public function dispatch($sUrl) {
-
+        $sUrl = $this->rmvVarUrl($sUrl);
         if ($this->is_matched($sUrl)) {
             $sController = $this->aParams['controller'];
             $sController = $this->convertToCamelCase($sController);
@@ -69,7 +78,7 @@ class Router {
         }
     }
 
-    /*convert to CamelCase*/
+    /*converts to CamelCase*/
     public function convertToCamelCase($sConvert) {
 
         $sConvert = str_replace('-', ' ', $sConvert);
@@ -78,7 +87,7 @@ class Router {
         return $sConvert;
     }
 
-    /*convert to camelBack*/
+    /*converts to camelBack*/
     public function convertToCamelBack($sConvert) {
 
         $sConvert = str_replace('-', ' ', $sConvert);
@@ -88,12 +97,12 @@ class Router {
         return $sConvert;
     }
 
-    /*get all routes from router*/
+    /*gets all routes from router*/
     public function get_routes() {
         return $this->aRoutes;
     }
 
-    /*get parameters from current url*/
+    /*gets parameters from current url*/
     public function get_parameters() {
         return $this->aParams;
     }
