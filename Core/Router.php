@@ -26,6 +26,8 @@ class Router {
 
     /*checking does url exist in routing table*/
     public function is_matched($sUrl) {
+        
+        $sUrl = preg_replace('/[?&].*/','',$sUrl);
         foreach ($this->routes as $sRoute => $aParams) {
             if (preg_match($sRoute, $sUrl, $aMatches)) {
                 foreach ($aMatches as $key => $value) {
