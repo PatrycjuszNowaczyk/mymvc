@@ -26,8 +26,13 @@ class Router {
 
     /*checking does url exist in routing table*/
     public function is_matched($sUrl) {
+<<<<<<< HEAD
 
         $sUrl = preg_replace('/[?&].*/', '', $sUrl);
+=======
+        
+        $sUrl = preg_replace('/[?&].*/','',$sUrl);
+>>>>>>> 142342350ed17180bff1eb5bb3ddcc0a2c26e0db
         foreach ($this->routes as $sRoute => $aParams) {
             if (preg_match($sRoute, $sUrl, $aMatches)) {
                 foreach ($aMatches as $key => $value) {
