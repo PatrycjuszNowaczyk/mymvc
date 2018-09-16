@@ -2,36 +2,36 @@
 
 class Router {
 
-    protected $_routes = [];
-    protected $_params = [];
-    protected $_matches = [];
+    protected $_aRoutes = [];
+    protected $_aParams = [];
+    protected $_aMatches = [];
 
     /*adding next routes*/
-    public function add($route, $params = []) {
+    public function add($sRoute, $aParams = []) {
 
         $reg_ex = '/\//';
         $reg_ex_replace = '\\/';
-        $route = preg_replace($reg_ex, $reg_ex_replace, $route);
+        $sRoute = preg_replace($reg_ex, $reg_ex_replace, $sRoute);
         $reg_ex = '/\{([a-z-]+):([^\}]+)\}/';
         $reg_ex_replace = '(?P<\1>\2)';
-        $route = preg_replace($reg_ex, $reg_ex_replace, $route);
+        $sRoute = preg_replace($reg_ex, $reg_ex_replace, $sRoute);
         $reg_ex = '/\{([a-z-]+)\}/';
         $reg_ex_replace = '(?P<\1>[a-z-]+)';
-        $route = preg_replace($reg_ex, $reg_ex_replace, $route);
-        $route = '/^' . $route . '$/';
-        $this->routes[$route] = $params;
+        $sRoute = preg_replace($reg_ex, $reg_ex_replace, $sRoute);
+        $sRoute = '/^' . $sRoute . '$/';
+        $this->routes[$sRoute] = $aParams;
     }
 
     /*checking does url exist in routing table*/
-    public function is_matched($url) {
-        foreach ($this->routes as $route => $params) {
-            if (preg_match($route, $url, $matches)) {
-                foreach ($matches as $key => $value) {
+    public function is_matched($sUrl) {
+        foreach ($this->routes as $sRoute => $aParams) {
+            if (preg_match($sRoute, $sUrl, $aMatches)) {
+                foreach ($aMatches as $key => $value) {
                     if (is_string($key)) {
-                        $params[$key] = $value;
+                        $aParams[$key] = $value;
                     }
                 }
-                $this->params = $params;
+                $this->params = $aParams;
                 return true;
             }
         }
@@ -39,43 +39,43 @@ class Router {
     }
 
     /*dispatch current url to right controller and action*/
-    public function dispatch($url) {
+    public function dispatch($sUrl) {
 
-        if ($this->is_matched($url)) {
-            $controller = $this->params['controller'];
-            $controller = $this->convertToCamelCase($controller);
-            if (class_exists($controller)) {
-                $oController = new $controller();
-                $action = $this->params['action'];
-                $action = $this->convertToCamelBack($action);
-                if (is_callable([$oController, $action])) {
-                    $oController->$action();
+        if ($this->is_matched($sUrl)) {
+            $sController = $this->params['controller'];
+            $sController = $this->convertToCamelCase($sController);
+            if (class_exists($sController)) {
+                $oController = new $sController();
+                $sAction = $this->params['action'];
+                $sAction = $this->convertToCamelBack($sAction);
+                if (is_callable([$oController, $sAction])) {
+                    $oController->$sAction();
                 } else {
-                    echo "Method [{$action}] in [{$controller}] is not collable.";
+                    echo "Method [{$sAction}] in [{$sController}] is not collable.";
                 }
             } else {
-                echo "Controller [{$controller}] doesn't exist.";
+                echo "Controller [{$sController}] doesn't exist.";
             }
         } else {
-            echo "This url doesn't match to routes array, so controller {$this->convertToCamelCase($url)} doesn't exist.";
+            echo "This url doesn't match to routes array, so controller {$this->convertToCamelCase($sUrl)} doesn't exist.";
         }
     }
 
     /*convert to CamelCase*/
-    public function convertToCamelCase($convert) {
-        $convert = str_replace('-', ' ', $convert);
-        $convert = ucwords($convert);
-        $convert = str_replace(' ', '', $convert);
-        return $convert;
+    public function convertToCamelCase($sConvert) {
+        $sConvert = str_replace('-', ' ', $sConvert);
+        $sConvert = ucwords($sConvert);
+        $sConvert = str_replace(' ', '', $sConvert);
+        return $sConvert;
     }
 
     /*convert to camelBack*/
-    public function convertToCamelBack($convert) {
-        $convert = str_replace('-', ' ', $convert);
-        $convert = ucwords($convert);
-        $convert = str_replace(' ', '', $convert);
-        $convert = lcfirst($convert);
-        return $convert;
+    public function convertToCamelBack($sConvert) {
+        $sConvert = str_replace('-', ' ', $sConvert);
+        $sConvert = ucwords($sConvert);
+        $sConvert = str_replace(' ', '', $sConvert);
+        $sConvert = lcfirst($sConvert);
+        return $sConvert;
     }
 
     /*get all routes from router*/
