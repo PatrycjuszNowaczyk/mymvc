@@ -29,3 +29,6 @@ $oRouter->addRoute('{controller}/{id:\d+}/{action}');
 $oRouter->dispatch($sUrl);
 
 // added extra comment
+// first line
+// second line
+// third line
