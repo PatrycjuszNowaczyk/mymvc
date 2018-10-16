@@ -27,5 +27,3 @@ $oRouter->addRoute('{controller}/{action}');
 $oRouter->addRoute('{controller}/{id:\d+}/{action}');
 
 $oRouter->dispatch($sUrl);
-
-// added extra comment
