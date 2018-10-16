@@ -57,14 +57,14 @@ class Router {
         $sUrl = $this->rmvVarUrl($sUrl);
         if ($this->is_matched($sUrl)) {
             $sController = $this->aParams['controller'];
-            $sController = $this->convertToCamelCase($sController);
+            $sController = $this->convertToStudlyCaps($sController);
             $sController = "App\Controllers\\$sController";
             if (class_exists($sController)) {
                 $oController = new $sController($this->aParams);
                 var_dump($oController);
                 exit;
                 $sAction = $this->aParams['action'];
-                $sAction = $this->convertToCamelBack($sAction);
+                $sAction = $this->convertToCamelCase($sAction);
                 if (is_callable([$oController, $sAction])) {
                     $oController->$sAction();
                 } else {
@@ -74,12 +74,12 @@ class Router {
                 echo "Controller [{$sController}] doesn't exist.";
             }
         } else {
-            echo "This url doesn't match to routes array, so controller {$this->convertToCamelCase($sUrl)} doesn't exist.";
+            echo "This url doesn't match to routes array, so controller {$this->convertToStudlyCaps($sUrl)} doesn't exist.";
         }
     }
 
     /*converts to CamelCase*/
-    public function convertToCamelCase($sConvert) {
+    public function convertToStudlyCaps($sConvert) {
 
         $sConvert = str_replace('-', ' ', $sConvert);
         $sConvert = ucwords($sConvert);
@@ -87,8 +87,8 @@ class Router {
         return $sConvert;
     }
 
-    /*converts to camelBack*/
-    public function convertToCamelBack($sConvert) {
+    /*converts to camelCase*/
+    public function convertToCamelCase($sConvert) {
 
         $sConvert = str_replace('-', ' ', $sConvert);
         $sConvert = ucwords($sConvert);
