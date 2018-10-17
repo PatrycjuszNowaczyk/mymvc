@@ -25,8 +25,5 @@ $oRouter->addRoute('posts', ['controller' => 'posts', 'action' => 'index']);
 $oRouter->addRoute('admin/{controller}/{action}');
 $oRouter->addRoute('{controller}/{action}');
 $oRouter->addRoute('{controller}/{id:\d+}/{action}');
-
-echo '<br><pre>';
-echo $sUrl;
-echo '<br>';
+echo '<pre>';
 $oRouter->dispatch($sUrl);

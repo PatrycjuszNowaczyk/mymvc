@@ -6,18 +6,26 @@ class Posts extends \Core\Controller {
 
     /*METHODS*/
     //-------------------------------------------------------------
-    public function index() {
-        echo 'This is index method at Posts class.';
-        echo '<br><pre>';
-        echo \htmlspecialchars(print_r($_GET, true));
+    protected function before() {
+        echo '(before)<br>';
+        // return false;
     }
 
-    public function addNew() {
+    protected function after() {
+        echo '<br>(after)';
+    }
+
+    public function indexAction() {
+        echo 'This is index method at Posts class.';
+    }
+
+    public function addNewAction() {
         echo 'This is addNew method at Posts class.';
     }
 
-    public function edit() {
+    public function editAction() {
         echo 'This is edit method at Posts class.<br>';
-        echo htmlspecialchars(print_r($this->aParams, true));
+        echo htmlspecialchars(print_r($this->aRouteParams, true));
     }
+
 }

@@ -21,7 +21,6 @@ class Router {
 
     /*adding next routes*/
     public function addRoute($sRoute, $aParams = []) {
-
         $reg_ex = '/\//';
         $reg_ex_replace = '\\/';
         $sRoute = preg_replace($reg_ex, $reg_ex_replace, $sRoute);
@@ -62,7 +61,6 @@ class Router {
 
     /*checking does url exist in routing table*/
     private function is_matched($sUrl) {
-
         foreach ($this->aRoutes as $sRoute => $aParams) {
             if (preg_match($sRoute, $sUrl, $aMatches)) {
                 foreach ($aMatches as $key => $value) {
@@ -92,7 +90,6 @@ class Router {
 
     /*converts to StudlyCaps*/
     private function convertToStudlyCaps($sConvert) {
-
         $sConvert = str_replace('-', ' ', $sConvert);
         $sConvert = ucwords($sConvert);
         $sConvert = str_replace(' ', '', $sConvert);
@@ -101,7 +98,6 @@ class Router {
 
     /*converts to camelCase*/
     private function convertToCamelCase($sConvert) {
-
         $sConvert = str_replace('-', ' ', $sConvert);
         $sConvert = ucwords($sConvert);
         $sConvert = str_replace(' ', '', $sConvert);
