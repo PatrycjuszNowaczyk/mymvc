@@ -4,11 +4,13 @@ namespace Core;
 
 abstract class Controller {
 
-    /*variables*/
-    protected $aParams = [];
+    /*VARIABLES*/
+    //-------------------------------------------------------------
+    protected $aRouteParams = [];
 
-    /*methods*/
-    public function __construct($aParams) {
-        $this->aParams = $aParams;
+    /*METHODS*/
+    //-------------------------------------------------------------
+    public function __construct($aRouteParams) {
+        $this->aRouteParams = $aRouteParams;
     }
 }

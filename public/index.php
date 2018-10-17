@@ -26,4 +26,7 @@ $oRouter->addRoute('admin/{controller}/{action}');
 $oRouter->addRoute('{controller}/{action}');
 $oRouter->addRoute('{controller}/{id:\d+}/{action}');
 
+echo '<br><pre>';
+echo $sUrl;
+echo '<br>';
 $oRouter->dispatch($sUrl);

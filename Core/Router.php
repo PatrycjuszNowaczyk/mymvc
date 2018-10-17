@@ -35,25 +35,9 @@ class Router {
         $this->aRoutes[$sRoute] = $aParams;
     }
 
-    /*checking does url exist in routing table*/
-    public function is_matched($sUrl) {
-
-        foreach ($this->aRoutes as $sRoute => $aParams) {
-            if (preg_match($sRoute, $sUrl, $aMatches)) {
-                foreach ($aMatches as $key => $value) {
-                    if (is_string($key)) {
-                        $aParams[$key] = $value;
-                    }
-                }
-                $this->aParams = $aParams;
-                return true;
-            }
-        }
-        return false;
-    }
-
     /*dispatches current url to right controller and action*/
     public function dispatch($sUrl) {
+        $sUrl = $this->removeQueryStringVariables($sUrl);
         $sUrl = $this->rmvVarUrl($sUrl);
         if ($this->is_matched($sUrl)) {
             $sController = $this->aParams['controller'];
@@ -61,8 +45,6 @@ class Router {
             $sController = "App\Controllers\\$sController";
             if (class_exists($sController)) {
                 $oController = new $sController($this->aParams);
-                var_dump($oController);
-                exit;
                 $sAction = $this->aParams['action'];
                 $sAction = $this->convertToCamelCase($sAction);
                 if (is_callable([$oController, $sAction])) {
@@ -78,8 +60,38 @@ class Router {
         }
     }
 
-    /*converts to CamelCase*/
-    public function convertToStudlyCaps($sConvert) {
+    /*checking does url exist in routing table*/
+    private function is_matched($sUrl) {
+
+        foreach ($this->aRoutes as $sRoute => $aParams) {
+            if (preg_match($sRoute, $sUrl, $aMatches)) {
+                foreach ($aMatches as $key => $value) {
+                    if (is_string($key)) {
+                        $aParams[$key] = $value;
+                    }
+                }
+                $this->aParams = $aParams;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /*remove query string variables*/
+    private function removeQueryStringVariables($sUrl) {
+        if ($sUrl != '') {
+            $aUrlParts = explode('&', $sUrl, 2);
+            if (strpos($aUrlParts[0], '=') === false) {
+                $sUrl = $aUrlParts[0];
+            } else {
+                $sUrl = '';
+            }
+        }
+        return $sUrl;
+    }
+
+    /*converts to StudlyCaps*/
+    private function convertToStudlyCaps($sConvert) {
 
         $sConvert = str_replace('-', ' ', $sConvert);
         $sConvert = ucwords($sConvert);
@@ -88,7 +100,7 @@ class Router {
     }
 
     /*converts to camelCase*/
-    public function convertToCamelCase($sConvert) {
+    private function convertToCamelCase($sConvert) {
 
         $sConvert = str_replace('-', ' ', $sConvert);
         $sConvert = ucwords($sConvert);
@@ -98,12 +110,12 @@ class Router {
     }
 
     /*gets all routes from router*/
-    public function get_routes() {
+    private function get_routes() {
         return $this->aRoutes;
     }
 
     /*gets parameters from current url*/
-    public function get_parameters() {
+    private function get_parameters() {
         return $this->aParams;
     }
 }
