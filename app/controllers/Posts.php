@@ -28,4 +28,5 @@ class Posts extends \Core\Controller {
         echo htmlspecialchars(print_r($this->aRouteParams, true));
     }
 
+//END OF A CLASS---------------------------------------------------
 }

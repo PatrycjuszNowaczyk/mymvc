@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
 
-class Home extends \Core\Controller {
+class Admin extends \Core\Controller {
 
     /*METHODS*/
-    //-------------------------------------------------------------
     protected function before() {
         echo '(before)<br>';
         // return false;
@@ -16,7 +15,11 @@ class Home extends \Core\Controller {
     }
 
     public function indexAction() {
-        echo 'This is index method at Home class.';
+        echo 'This is index action in admin controller';
+    }
+
+    public function login(){
+        echo 'Login form to admin panel';
     }
 
 //END OF A CLASS---------------------------------------------------    

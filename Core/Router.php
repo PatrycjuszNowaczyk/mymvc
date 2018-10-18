@@ -14,10 +14,10 @@ class Router {
     //-------------------------------------------------------------
 
     /*removes variables from $_GET url and leave only parameters*/
-    public function rmvVarUrl($sUrl) {
-        $sUrl = preg_replace('/[?&].*/', '', $sUrl);
-        return $sUrl;
-    }
+    // public function rmvVarUrl($sUrl) {
+    //     $sUrl = preg_replace('/[?&].*/', '', $sUrl);
+    //     return $sUrl;
+    // }
 
     /*adding next routes*/
     public function addRoute($sRoute, $aParams = []) {
@@ -37,11 +37,11 @@ class Router {
     /*dispatches current url to right controller and action*/
     public function dispatch($sUrl) {
         $sUrl = $this->removeQueryStringVariables($sUrl);
-        $sUrl = $this->rmvVarUrl($sUrl);
+        // $sUrl = $this->rmvVarUrl($sUrl);
         if ($this->is_matched($sUrl)) {
             $sController = $this->aParams['controller'];
             $sController = $this->convertToStudlyCaps($sController);
-            $sController = "App\Controllers\\$sController";
+            $sController = $this->getNamespace() . $sController;
             if (class_exists($sController)) {
                 $oController = new $sController($this->aParams);
                 $sAction = $this->aParams['action'];
@@ -75,6 +75,15 @@ class Router {
         return false;
     }
 
+    /*get namespace for action*/
+    private function getNamespace(){
+        $sNamespace = 'App\Controllers\\';
+        if (array_key_exists('namespace', $this->aParams)){
+            $sNamespace .= $this->aParams['namespace'] . '\\';
+        }
+        return $sNamespace;
+    }
+
     /*remove query string variables*/
     private function removeQueryStringVariables($sUrl) {
         if ($sUrl != '') {
@@ -106,12 +115,14 @@ class Router {
     }
 
     /*gets all routes from router*/
-    private function get_routes() {
+    public function get_routes() {
         return $this->aRoutes;
     }
 
     /*gets parameters from current url*/
-    private function get_parameters() {
+    public function get_parameters() {
         return $this->aParams;
     }
+
+//END OF A CLASS---------------------------------------------------
 }
