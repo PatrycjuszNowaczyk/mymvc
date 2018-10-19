@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
+
 use Core\View;
 
-class Home extends \Core\Controller {
+class Admin extends \Core\Controller {
 
     /*METHODS*/
     //-------------------------------------------------------------
@@ -17,14 +18,11 @@ class Home extends \Core\Controller {
     }
 
     public function indexAction() {
-        View::render('Home/index.html', [
-            'template' => 'base.html',
-            'elements' => [
-                'one' => 'Elements/Posts/posts.html',
-                'two' => 'Elements/Galleries/gallery.html',
-                'three' => 'Elements/Boxes/boxes.html'
-            ]
-        ]);
+        echo 'This is index action in admin controller';
+    }
+
+    public function login() {
+        View::render('Admin/login.html');
     }
 
 //END OF A CLASS---------------------------------------------------

@@ -1,6 +1,11 @@
 <?php
+/**HOW TO ADD A ROUTE
+*Firstly add direct routes, because system reads all of
+*the routes from the top. To avoid overwrite direct route by
+*regular expression route, simply put them at the end of this file.
+ */
 
-//normal routes
+//direct routes
 //site routes
 $oRouter->addRoute('', ['controller' => 'home', 'action' => 'index']);
 $oRouter->addRoute('posts', ['controller' => 'posts', 'action' => 'index']);

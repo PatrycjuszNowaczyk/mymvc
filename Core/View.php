@@ -9,7 +9,10 @@ class View {
         static $oTwig = null;
         if ($oTwig === null) {
             $oLoader = new \Twig_Loader_Filesystem('../App/Views');
-            $oTwig = new \Twig_Environment($oLoader);
+            $oTwig = new \Twig_Environment($oLoader, [
+                'debug' => true,
+            ]);
+            $oTwig->addExtension(new \Twig_Extension_Debug());
         } else {
             echo 'Couldn\'t load view.';
             exit;
