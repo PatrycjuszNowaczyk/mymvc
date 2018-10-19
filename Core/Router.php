@@ -13,11 +13,6 @@ class Router {
     /*METHODS*/
     //-------------------------------------------------------------
 
-    /*removes variables from $_GET url and leave only parameters*/
-    // public function rmvVarUrl($sUrl) {
-    //     $sUrl = preg_replace('/[?&].*/', '', $sUrl);
-    //     return $sUrl;
-    // }
 
     /*adding next routes*/
     public function addRoute($sRoute, $aParams = []) {

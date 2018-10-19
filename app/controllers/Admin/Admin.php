@@ -2,6 +2,8 @@
 
 namespace App\Controllers\Admin;
 
+use Core\View;
+
 class Admin extends \Core\Controller {
 
     /*METHODS*/
@@ -18,9 +20,9 @@ class Admin extends \Core\Controller {
         echo 'This is index action in admin controller';
     }
 
-    public function login(){
-        echo 'Login form to admin panel';
+    public function login() {
+        View::render('Admin/login.html');
     }
 
-//END OF A CLASS---------------------------------------------------    
+//END OF A CLASS---------------------------------------------------
 }
