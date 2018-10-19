@@ -3,18 +3,14 @@
 namespace App\Models;
 use PDO;
 
-class Post {
+class Post extends \Core\Model {
 
     /*METHODS*/
     //-------------------------------------------------------------
     public static function getAll() {
-        $host = 'localhost';
-        $dbname = 'mymvc';
-        $username = 'root';
-        $password = '';
-
         try {
-            $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+            // $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+            $db = static::getDB();
             $stmt = $db->query('SELECT * FROM posts');
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $result;

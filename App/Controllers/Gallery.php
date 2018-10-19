@@ -2,7 +2,8 @@
 
 namespace App\Controllers;
 use Core\View;
-class Home extends \Core\Controller {
+
+class Gallery extends \Core\Controller {
 
     /*METHODS*/
     //-------------------------------------------------------------
@@ -16,14 +17,7 @@ class Home extends \Core\Controller {
     }
 
     public function indexAction() {
-        View::render('Home/index.html', [
-            'template' => 'base.html',
-            'elements' => [
-                'one' => 'Elements/Posts/posts.html',
-                'two' => 'Elements/Galleries/gallery.html',
-                'three' => 'Elements/Boxes/boxes.html'
-            ]
-        ]);
+        View::render('Gallery/index.html');
     }
 
 //END OF A CLASS---------------------------------------------------
