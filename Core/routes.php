@@ -9,6 +9,7 @@ $oRouter->addRoute('posts', ['controller' => 'posts', 'action' => 'index']);
 $oRouter->addRoute('admin', ['controller' => 'admin', 'action' => 'login', 'namespace' => 'Admin']);
 $oRouter->addRoute('admin/users', ['controller' => 'users', 'action' => 'index', 'namespace' => 'Admin']);
 
+//-------------------------------------------------------------
 //regular expression routes
 //site routes
 $oRouter->addRoute('{controller}/{action}');

@@ -5,17 +5,19 @@ namespace App\Controllers\Admin;
 class Users extends \Core\Controller {
 
     /*METHODS*/
-    protected function before(){
-        //make sure an admin user is logged in
+    //-------------------------------------------------------------
+    protected function before() {
+        // echo '(before)<br>';
+        // return false;
     }
 
-    protected function after(){
-
+    protected function after() {
+        // echo '<br>(after)';
     }
 
-    public function indexAction(){
+    public function indexAction() {
         echo 'This is index method in Users class.';
     }
 
-//END OF A CLASS---------------------------------------------------    
+//END OF A CLASS---------------------------------------------------
 }
