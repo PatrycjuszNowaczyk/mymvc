@@ -16,6 +16,9 @@ class Posts extends \Core\Controller {
         // echo '<br>(after)';
     }
 
+    /**
+     *
+     */
     public function indexAction() {
         $aData['posts'] = Post::getAll();
         // echo '<pre>';
@@ -24,11 +27,17 @@ class Posts extends \Core\Controller {
         View::render('Posts/index.html', $aData);
     }
 
+    /**
+     *
+     */
     public function addNewAction() {
         View::render('Posts/add-new.html');
 
     }
 
+    /**
+     *
+     */
     public function editAction() {
         View::render('Posts/edit.html');
 
