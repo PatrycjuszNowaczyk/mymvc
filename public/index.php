@@ -5,10 +5,10 @@
 /*WRITE PHP LIKE A PRO: BUILD A PHP MVC FRAMEWORK FROM SCRATCH */
 /***************************************************************/
 
-/*define constans*/
-define('APPPATH', getcwd());
+/*define constant*/
+define('APPPATH', 'http://' . $_SERVER['HTTP_HOST'] . '/mymvc/');
 
-/*autoloader for composer*/
+/*autoloader for composer, and for system classes*/
 require_once(dirname(__DIR__) . '/vendor/autoload.php');
 
 /*autoloader controllers*/
@@ -20,13 +20,9 @@ require_once(dirname(__DIR__) . '/vendor/autoload.php');
 //     }
 // });
 
-/*variables*/
 $sUrl = $_SERVER['QUERY_STRING'];
-
-/*objects*/
 $oRouter = new Core\Router();
 
-
-/*methods and actions*/
+//require file with routes
 require_once('../Core/routes.php');
 $oRouter->dispatch($sUrl);

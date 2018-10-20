@@ -1,0 +1,20 @@
+{% extends template %}
+{% block title %}Home page{% endblock %}
+{% block body %}
+
+<body>
+    <header>
+        <h1>HOME index</h1>
+    </header>
+
+    {% for element in elements %}
+
+    {% include element %}
+
+    {% endfor %}
+
+    <footer>
+
+    </footer>
+</body>
+{% endblock %}

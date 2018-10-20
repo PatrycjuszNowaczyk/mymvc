@@ -4,7 +4,7 @@ namespace App\Controllers\Admin;
 
 use Core\View;
 
-class Admin extends \Core\Controller {
+class Themes extends \Core\Controller {
 
     /*METHODS*/
     //-------------------------------------------------------------
@@ -18,13 +18,12 @@ class Admin extends \Core\Controller {
     }
 
     public function indexAction() {
-        echo 'This is index action in admin controller';
+    View::render('../App/Views/Admin/themes.html');
     }
 
-    public function loginAction() {
-        View::render('Admin/login.html');
+    public function installThemeAction(){
+        include('../../Themes/Forest/theme_config.php');
     }
-
 
 //END OF A CLASS---------------------------------------------------
 }

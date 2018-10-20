@@ -28,7 +28,7 @@ class View {
         $sFile = '../App/Views/' . $sView;
 
         if (is_readable($sFile)) {
-            require_once $sFile;
+            require_once($sFile);
         } else {
             echo "View file: $sFile - not found.";
         }

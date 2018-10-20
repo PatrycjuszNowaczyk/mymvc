@@ -14,6 +14,7 @@ $oRouter->addRoute('gallery', ['controller' => 'gallery', 'action' => 'index']);
 //admin routes
 $oRouter->addRoute('admin', ['controller' => 'admin', 'action' => 'login', 'namespace' => 'Admin']);
 $oRouter->addRoute('admin/users', ['controller' => 'users', 'action' => 'index', 'namespace' => 'Admin']);
+$oRouter->addRoute('admin/themes', ['controller' => 'themes', 'action' => 'index', 'namespace' => 'Admin']);
 
 //-------------------------------------------------------------
 //regular expression routes
