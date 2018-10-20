@@ -2,13 +2,18 @@
 
 namespace Core;
 
+use App\Helpers\Urls;
 class View {
 
     /*this function loads twig html template*/
     public static function render($sTemplate, $aData = []) {
         static $oTwig = null;
         if ($oTwig === null) {
-            $oLoader = new \Twig_Loader_Filesystem('../App/Views');
+            if(!(Urls::isAdminUrl())){
+                $oLoader = new \Twig_Loader_Filesystem(APP_THEME);
+            } else{
+                $oLoader = new \Twig_Loader_Filesystem('../App/Views');
+            }
             $oTwig = new \Twig_Environment($oLoader, [
                 'debug' => true,
             ]);

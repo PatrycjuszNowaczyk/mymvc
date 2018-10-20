@@ -18,7 +18,7 @@ class Themes extends \Core\Controller {
     }
 
     public function indexAction() {
-    View::render('../App/Views/Admin/themes.html');
+    View::render('Admin/themes.html');
     }
 
     public function installThemeAction(){

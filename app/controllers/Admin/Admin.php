@@ -18,12 +18,13 @@ class Admin extends \Core\Controller {
     }
 
     public function indexAction() {
-        echo 'This is index action in admin controller';
+        View::render('Admin/index.html');
     }
 
-    public function login() {
+    public function loginAction() {
         View::render('Admin/login.html');
     }
+
 
 //END OF A CLASS---------------------------------------------------
 }
