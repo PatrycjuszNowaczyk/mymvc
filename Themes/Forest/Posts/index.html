@@ -15,7 +15,9 @@
     </header>
 
     {% for item in posts %}
-
+<pre>
+    {{ dump(item) }}
+</pre>
     <h3>{{ item.title }}</h3>
     <p>{{ item.post }}</p>
      <br>

@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
+
+body {
+
+    font-family: Lato, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.admin-login__content {
+    height: 100vh;
+}
+
+.admin-login {
+    height: 300px;
+    background-color: rgb(38, 83, 152);
+    top: calc(50vh - 150px);
+    color: #ffffff;
+}
+
+.admin-login__form {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 80%;
+    height: 120px;
+}
+
+.admin-login__input--wrapper {
+    width: 100%;
+    height: 30px;
+    background-color: #1269b0;
+}
+
+.admin-login__input {
+    outline: none;
+    display: block;
+    width: 100%;
+    height: 30px;
+    border: 0;
+    text-align: center;
+    background-color: transparent !important;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.admin-login__input::placeholder {
+    color: #ffffff;
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+}
+
+.admin-login__input:focus::placeholder {
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.admin-login__input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #1269b0 inset;
+    -webkit-text-fill-color: #ffffff;
+}
+
+.admin-login__valid-feedback {
+    width: 100%;
+    height: 15px;
+    font-size: 10px;
+    color: #fff;
+    text-align: center;
+}
+
+.admin-login__input-submit--wrapper {
+    width: 100%;
+    height: 30px;
+}
+
+.admin-login__input-submit {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    padding-top: 2px;
+    width: 130px;
+    height: 30px;
+    text-align: center;
+    color: #1269b0;
+    font-weight: 700;
+    text-decoration: none;
+    border: 2px solid #1269b0;
+    border-radius: 6px;
+    background-color: #ffffff;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.admin-login__input-submit:hover {
+    color: #ffffff;
+    text-decoration: none;
+    border: 2px solid #ffffff;
+    background-color: #1269b0;
+    transition: all 0.2s ease-in-out;
+    font-weight: 300;
+}

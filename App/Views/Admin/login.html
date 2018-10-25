@@ -1,18 +1,41 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
-</head>
-<body>
-<header>
-<h1>ADMIN login</h1>
-</header>
+{% extends 'Admin/base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="admin-login__content">
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-12">
+                <div class="row h-100">
+                    <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 col-xs-12">
+                        <div class="admin-login">
+                            <form action="" style="display:none;">
+                                <input style="display:none">
+                                <input type="password" style="display:none">
+                            </form>
+                            <form class="admin-login__form" action="admin" method="POST" autocomplete="off">
+                                <div class="admin-login__input--wrapper">
+                                    <input type="text" name="admin-login" class="admin-login__input" value=""
+                                        placeholder="LOGIN" required="required"></input>
+                                </div>
+                                <div class="admin-login__valid-feedback login">
 
-<footer>
+                                </div>
+                                <div class="admin-login__input--wrapper">
+                                    <input type="text" name="admin-password" class="admin-login__input" value=""
+                                        placeholder="HASŁO" required="required" onfocus="this.type='password'"></input>
+                                </div>
+                                <div class="admin-login__valid-feedback password">
 
-</footer>
-</body>
-</html>
+                                </div>
+                                <div class="admin-login__input-submit--wrapper">
+                                    <input class="admin-login__input-submit" type="submit" value="ZALOGUJ">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
