@@ -1,0 +1,58 @@
+<div class="admin__menu-panel">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="admin__menu-panel-header">
+                    <div class="admin__menu-panel-header-items">
+                        <div class="admin__menu-panel-burger">
+                            {{ include('Admin/img/icon_burger.svg') }}
+                        </div>
+                        <div class="admin__menu-panel-login--wrapper">
+                            <p class="admin__menu-panel-login">
+                                login.bardzo@długa.nazwa.com
+                            </p>
+                            <div class="admin__menu-panel-login-hover">
+                                <a href="{{ baseUrl }}admin/logout" class="admin__menu-panel-logout">LOGOUT</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 px-0">
+                <div class="admin__menu-panel-row">
+                    <a href="{{ baseUrl }}admin/pages" class="admin__menu-panel-item--link">
+                        <div class="admin__menu-panel-item">
+                            STRONY
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 px-0">
+                <div class="admin__menu-panel-row">
+                    <a href="{{ baseUrl }}admin/menu" class="admin__menu-panel-item--link">
+                        <div class="admin__menu-panel-item">
+                            MENU
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 px-0">
+                <div class="admin__menu-panel-row">
+                    <a href="{{ baseUrl }}admin/settings" class="admin__menu-panel-item--link">
+                        <div class="admin__menu-panel-item">
+                            USTAWIENIA
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

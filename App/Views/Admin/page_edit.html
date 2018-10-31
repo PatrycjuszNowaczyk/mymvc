@@ -1,0 +1,76 @@
+{% extends 'Admin/base.html' %}
+{% block title %}Strony{% endblock %}
+{% block content %}
+<form action="" method="POST" autocomplete="off">
+    <div class="admin__content">
+        {{ include("Admin/menu_panel.html") }}
+        <div class="admin__c-panel">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="admin__c-panel-header">
+                            <h1>STRONA</h1>
+                            <div class="row">
+                                <div class="col-10">
+                                    <div class="admin__c-panel-add-page-name">
+                                        <input type="text" class="admin__c-panel-add-page-name-text" name="page-name"
+                                            placeholder="wpisz nazwę strony" value="{{ page.0.name }}">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="admin__c-panel-add-page-buttons">
+                                        <input type="submit" class="admin__c-panel-add-page-save" value="zapisz" name="save"
+                                            placeholder="wpisz nazwę strony" formaction="{{ baseUrl }}admin/page-save">
+                                        <input type="submit" class="admin__c-panel-add-page-save-back" value="zapisz>wróć"
+                                            name="save-back" placeholder="wpisz nazwę strony" formaction="{{ baseUrl }}admin/page-save-back">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="admin__c-panel-icon-add--wrapper">
+                            <a href="{{ baseUrl }}admin/page-edit" class="admin__c-panel-icon-add">
+                                {{ include("Admin/img/icon_add.svg") }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="admin__c-panel-page-row">
+                            <div class="admin__c-panel-page-name">
+                                <a href="{{ baseUrl }}admin/page-edit" class="admin__c-panel-page-name-link">header</a>
+                            </div>
+                            <div class="admin__c-panel-icon-remove--wrapper">
+                                <a href="{{ baseUrl }}admin/page-remove" class="admin__c-panel-icon-remove">
+                                    {{ include("Admin/img/icon_trash.svg") }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-------------------------->
+
+                <!-------------------------->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="admin__c-panel-page-row">
+                            <div class="admin__c-panel-page-name">
+                                <a href="{{ baseUrl }}admin/page-edit" class="admin__c-panel-page-name-link">footer</a>
+                            </div>
+                            <div class="admin__c-panel-icon-remove--wrapper">
+                                <a href="{{ baseUrl }}admin/page-remove" class="admin__c-panel-icon-remove">
+                                    {{ include("Admin/img/icon_trash.svg") }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

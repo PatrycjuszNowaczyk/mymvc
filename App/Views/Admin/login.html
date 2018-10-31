@@ -12,7 +12,7 @@
                                 <input style="display:none">
                                 <input type="password" style="display:none">
                             </form>
-                            <form class="admin-login__form" action="admin" method="POST" autocomplete="off">
+                            <form class="admin-login__form" action="{{ baseUrl ~ 'admin/pages' }}" method="POST" autocomplete="off">
                                 <div class="admin-login__input--wrapper">
                                     <input type="text" name="admin-login" class="admin-login__input" value=""
                                         placeholder="LOGIN" required="required"></input>

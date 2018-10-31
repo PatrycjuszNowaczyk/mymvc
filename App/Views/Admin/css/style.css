@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
 
+* {
+    /* outline: 1px solid red; */
+}
+
 body {
 
     font-family: Lato, sans-serif;
@@ -7,6 +11,31 @@ body {
     font-size: 14px;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+h1 {
+    font-size: 30px;
+    color: #1269b0;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+a {
+    color: #ffffff;
+    font-weight: 700;
+    transition: all 0.5s ease-in-out;
+}
+
+a:hover {
+    color: #ffd800;
+    transition: all 0.2s ease-in-out;
+}
+
+/*LOGIN*/
 .admin-login__content {
     height: 100vh;
 }
@@ -44,7 +73,6 @@ body {
     border: 0;
     text-align: center;
     background-color: transparent !important;
-    text-transform: uppercase;
     color: #fff;
 }
 
@@ -106,4 +134,243 @@ body {
     background-color: #1269b0;
     transition: all 0.2s ease-in-out;
     font-weight: 300;
+}
+
+/*ADMIN MAIN TEMPLATE*/
+.admin__content {
+    display: flex;
+    min-height: 100vh;
+    justify-content: stretch;
+}
+
+.admin__menu-panel {
+    flex-basis: 200px;
+    background-color: rgb(38, 83, 152);
+    box-shadow: 0px 0px 15px #666666;
+}
+
+.admin__c-panel {
+    padding-left: 45px;
+    flex: 1;
+}
+
+.admin__c-panel-header {
+    height: 90px;
+}
+
+.admin__c-panel-header-spacer {
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.admin__c-panel-icon-add--wrapper {
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    left: -25px;
+    bottom: -27px;
+}
+
+.admin__c-panel-icon-add svg {
+    fill: #1269b0;
+    filter: drop-shadow(0px 0px 0px #1269b0);
+    transition: all 0.5s ease-in-out;
+}
+
+.admin__c-panel-icon-add:hover svg {
+    fill: #ffd800;
+    filter: drop-shadow(0px 0px 3px #777777);
+    transition: all 0.2s ease-in-out;
+}
+
+.admin__c-panel-add-page-name {
+    display: flex;
+    height: 30px;
+    width: 100%;
+    border: 2px solid #1269b0;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    padding: 0px 12px;
+}
+
+.admin__c-panel-add-page-name-text {
+    flex: 1;
+    border: 0px;
+    background: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    /* text-transform: uppercase; */
+    color: #1269b0;
+    outline: 0px;
+}
+
+.admin__c-panel-add-page-name-text::placeholder {
+    color: #1269b0;
+    opacity: 0.5;
+    transition: all 0.5s ease-in-out;
+}
+
+.admin__c-panel-add-page-name-text:focus::placeholder {
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.admin__c-panel-add-page-buttons {
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    width: 100%;
+    border: 2px solid #1269b0;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    overflow: hidden;
+
+}
+
+.admin__c-panel-add-page-save {
+    flex: 1;
+    padding: 0px 5px;
+    border: 0px;
+    background: #ffffff;
+    border-right: 1px solid #1269b0;
+    cursor: pointer;
+    font-weight: 700;
+    color: #1269b0;
+    transition: all 0.5s ease-in-out;
+}
+
+.admin__c-panel-add-page-save:hover {
+    background: #1269b0;
+    color: #ffd800;
+    transition: all 0.2s ease-in-out;
+}
+
+.admin__c-panel-add-page-save-back {
+    flex: 1;
+    padding: 0px 5px;
+    border: 0px;
+    background: #ffffff;
+    border-left: 1px solid #1269b0;
+    cursor: pointer;
+    font-weight: 700;
+    color: #1269b0;
+    transition: all 0.5s ease-in-out;
+}
+
+.admin__c-panel-add-page-save-back:hover {
+    background: #1269b0;
+    color: #ffd800;
+    transition: all 0.2s ease-in-out;
+}
+
+.admin__c-panel-page-row {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #1269b0;
+    border-radius: 6px;
+    padding: 0px 15px;
+    cursor: move;
+}
+
+.admin__c-panel-page-name-link {
+    color: #ffffff;
+    font-weight: 700;
+    /* text-transform: uppercase; */
+}
+
+.admin__c-panel-page-name-link:hover {
+    color: #ffd800;
+    text-decoration: none;
+    filter: drop-shadow(0px 0px 2px #777777);
+}
+
+.admin__c-panel-icon-remove--wrapper {
+    height: 24px;
+    width: 24px;
+    margin-left: auto;
+}
+
+.admin__c-panel-icon-remove svg {
+    fill: #ffffff;
+    transition: all 0.5s ease-in-out;
+}
+
+.admin__c-panel-icon-remove:hover svg {
+    fill: #ffd800;
+    transition: all 0.2s ease-in-out;
+}
+
+.admin__menu-panel-header {
+    height: 90px;
+    padding-top: 15px;
+}
+
+.admin__menu-panel-header-items {
+    display: flex;
+    align-items: center;
+}
+
+.admin__menu-panel-row {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 30px;
+    margin-bottom: 10px;
+    background-color: #1269b0;
+    transition: all 0.5s ease-in-out;
+}
+
+.admin__menu-panel-row:hover {
+    background-color: #00A7E1;
+    transition: all 0.2s ease-in-out;
+}
+
+.admin__menu-panel-item--link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.admin__menu-panel-item--link:hover {
+    color: rgb(38, 83, 152);
+}
+
+.admin__menu-panel-burger {
+    width: 22px;
+    height: 18px;
+}
+
+.admin__menu-panel-burger svg {
+    fill: #ffffff;
+}
+
+.admin__menu-panel-login--wrapper {
+    flex: 1;
+    display: flex;
+}
+
+.admin__menu-panel-login {
+    color: #ffffff;
+    font-weight: 700;
+    text-align: right;
+    max-width: 148px;
+    padding-left: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    margin-left: auto;
+}
+
+.admin__menu-panel-login-hover {
+    display: none;
+}
+
+.admin__menu-panel-login:hover+.admin__menu-panel-login-hover {
+    display: block;
+    position: absolute;
 }

@@ -17,6 +17,7 @@ class View {
             $oTwig = new \Twig_Environment($oLoader, [
                 'debug' => true,
             ]);
+            $oTwig->addGlobal('baseUrl', APP_PATH);
             $oTwig->addExtension(new \Twig_Extension_Debug());
         } else {
             echo 'Couldn\'t load view.';

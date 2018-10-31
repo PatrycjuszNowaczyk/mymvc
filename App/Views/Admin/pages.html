@@ -1,0 +1,53 @@
+{% extends 'Admin/base.html' %}
+{% block title %}Strony{% endblock %}
+{% block content %}
+<div class="admin__content">
+{{ include("Admin/menu_panel.html") }}
+    <div class="admin__c-panel">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="admin__c-panel-header">
+                        <h1>STRONY</h1>
+                        <div class="admin__c-panel-header-spacer">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="admin__c-panel-icon-add--wrapper">
+                        <a href="{{ baseUrl }}admin/page-edit" class="admin__c-panel-icon-add">
+                            {{ include("Admin/img/icon_add.svg") }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-------------------------->
+
+            {% for page in pages %}
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="admin__c-panel-page-row">
+                        <div class="admin__c-panel-page-name">
+                            <a href="{{ baseUrl }}admin/page-edit?page-id={{ page.id }}" class="admin__c-panel-page-name-link">{{ page.name }}</a>
+                        </div>
+                        <div class="admin__c-panel-icon-remove--wrapper">
+                            <a href="{{ baseUrl }}admin/page-remove?page-id={{ page.id }}" class="admin__c-panel-icon-remove">
+                            {{ include("Admin/img/icon_trash.svg") }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+            <!-------------------------->
+        </div>
+    </div>
+</div>
+{% endblock %}

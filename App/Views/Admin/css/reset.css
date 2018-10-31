@@ -1,9 +1,16 @@
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
-   Modified by Patrycjusz Nowaczyk
+   Modified by Patrycjusz Nowaczyk : patrycjusz.nowaczyk@gmail.com
 */
-
+html, body, div, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, img,
+article, aside, canvas, details, embed, 
+footer, header, 
+menu, nav, section, summary,
+audio, video {
+	display: block;
+}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -29,7 +36,7 @@ time, mark, audio, video {
 div::before, span::before, applet::before, object::before, iframe::before,
 h1::before, h2::before, h3::before, h4::before, h5::before, h6::before, p::before, blockquote::before,
 a::before, abbr::before, acronym::before, address::before, big::before, cite::before, code::before,
-del::before, dfn::before, em::before, img::before, ins::before, kbd::before, q::before, s::before, samp::before,
+del::before, dfn::before, em::before, ins::before, kbd::before, q::before, s::before, samp::before,
 small::before, strike::before, strong::before, sub::before, sup::before, tt::before, var::before,
 b::before, u::before, i::before, center::before,
 dl::before, dt::before, dd::before, ol::before, ul::before, li::before,
@@ -39,14 +46,13 @@ article::before, aside::before, canvas::before, details::before, embed::before,
 figure::before, figcaption::before, footer::before, header::before, hgroup::before, 
 menu::before, nav::before, output::before, ruby::before, section::before, summary::before,
 time::before, mark::before, audio::before, video::before{
-	position: absolute;
 	content: '';
-	box-sizing: border-box;
+	display: table;
 }
 div::after, span::after, applet::after, object::after, iframe::after,
 h1::after, h2::after, h3::after, h4::after, h5::after, h6::after, p::after, blockquote::after,
 a::after, abbr::after, acronym::after, address::after, big::after, cite::after, code::after,
-del::after, dfn::after, em::after, img::after, ins::after, kbd::after, q::after, s::after, samp::after,
+del::after, dfn::after, em::after, ins::after, kbd::after, q::after, s::after, samp::after,
 small::after, strike::after, strong::after, sub::after, sup::after, tt::after, var::after,
 b::after, u::after, i::after, center::after,
 dl::after, dt::after, dd::after, ol::after, ul::after, li::after,
@@ -56,9 +62,12 @@ article::after, aside::after, canvas::after, details::after, embed::after,
 figure::after, figcaption::after, footer::after, header::after, hgroup::after, 
 menu::after, nav::after, output::after, ruby::after, section::after, summary::after,
 time::after, mark::after, audio::after, video::after{
-	position: absolute;
 	content: '';
-	box-sizing: border-box;
+	display: table;
+}
+/* Reset bootstrap columns min-height to 0px */
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto{
+	min-height: 0px;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -80,4 +89,10 @@ blockquote, q {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+a{
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: none;
 }

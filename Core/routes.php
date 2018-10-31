@@ -13,8 +13,14 @@ $oRouter->addRoute('gallery', ['controller' => 'gallery', 'action' => 'index']);
 
 //admin routes
 $oRouter->addRoute('admin', ['controller' => 'admin', 'action' => 'login', 'namespace' => 'Admin']);
-$oRouter->addRoute('admin/users', ['controller' => 'users', 'action' => 'index', 'namespace' => 'Admin']);
-$oRouter->addRoute('admin/themes', ['controller' => 'themes', 'action' => 'index', 'namespace' => 'Admin']);
+$oRouter->addRoute('admin/pages', ['controller' => 'admin', 'action' => 'pages', 'namespace' => 'Admin']);
+$oRouter->addRoute('admin/menu', ['controller' => 'admin', 'action' => 'menu', 'namespace' => 'Admin']);
+$oRouter->addRoute('admin/settings', ['controller' => 'admin', 'action' => 'settings', 'namespace' => 'Admin']);
+$oRouter->addRoute('admin/page-add', ['controller' => 'admin', 'action' => 'page-edit', 'namespace' => 'Admin']);
+$oRouter->addRoute('admin/page-edit', ['controller' => 'admin', 'action' => 'page-edit', 'namespace' => 'Admin']);
+$oRouter->addRoute('admin/page-remove', ['controller' => 'admin', 'action' => 'page-remove', 'namespace' => 'Admin']);
+$oRouter->addRoute('admin/page-save', ['controller' => 'admin', 'action' => 'page-save', 'namespace' => 'Admin']);
+$oRouter->addRoute('admin/page-save-back', ['controller' => 'admin', 'action' => 'page-save-back', 'namespace' => 'Admin']);
 
 //-------------------------------------------------------------
 //regular expression routes
@@ -23,4 +29,4 @@ $oRouter->addRoute('{controller}/{action}');
 $oRouter->addRoute('{controller}/{id:\d+}/{action}');
 
 //admin routes
-$oRouter->addRoute('admin/{controller}/{action}', ['namespace' => 'Admin']);
+// $oRouter->addRoute('admin/{controller}/{action}', ['namespace' => 'Admin']);

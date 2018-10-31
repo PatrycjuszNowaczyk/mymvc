@@ -9,18 +9,14 @@ use App\Helpers\Strings;
 require_once(dirname(__DIR__) . '/vendor/autoload.php');
 
 /*define constant*/
-define('APP_PATH', 'http://' . $_SERVER['HTTP_HOST'] . '/mymvc/');
+define('APP_PATH', 'http://' . $_SERVER['HTTP_HOST'] . '/mymvc/public/');
 define('APP_THEME', Theme::getThemeUrl());
-// var_dump(APP_THEME);
-// $variable = Strings::getFirstWordQueryString();
-// echo '<pre>';
-// var_dump($variable);
-// var_dump($_SERVER);
-// exit;
+
 $sUrl = $_SERVER['QUERY_STRING'];
 $oRouter = new Core\Router();
 
 //require file with routes
 require_once('../Core/routes.php');
+
 //follow entered route
 $oRouter->dispatch($sUrl);
