@@ -7,8 +7,6 @@ use Core\View;
 
 class Admin extends \Core\Controller {
 
-    /*METHODS*/
-    //-------------------------------------------------------------
     protected function before() {
         // echo '(before)<br>';
         // return false;
@@ -39,10 +37,10 @@ class Admin extends \Core\Controller {
         $aData['page'] = ModelAdmin::pageGet();
         if (!empty($aData['page'])) {
             View::render('Admin/page_edit.html', $aData);
+            unset($aData);
         } else {
             View::render('Admin/page_edit.html');
         }
-        unset($aData);
     }
     public function pageRemoveAction() {
         ModelAdmin::pageRemove();
@@ -51,8 +49,16 @@ class Admin extends \Core\Controller {
         unset($aData, $_GET);
     }
     public function pageSaveAction() {
-        ModelAdmin::pageSave();
-        View::render('Admin/page_edit.html');
+        if(!empty($_POST['page-name'])){
+            ModelAdmin::pageSave();
+            sleep(0.25);
+            $aData['page'] = ModelAdmin::pageGetLastEditedPage();
+            View::render('Admin/page_edit.html', $aData);
+            unset($_POST, $aData);
+        }
+        else{
+            View::render('Admin/page_edit.html');
+        }
     }
     public function pageSaveBackAction() {
         ModelAdmin::pageSave();
@@ -60,5 +66,4 @@ class Admin extends \Core\Controller {
         View::render('Admin/pages.html', $aData);
         unset($aData);
     }
-//END OF A CLASS---------------------------------------------------
 }

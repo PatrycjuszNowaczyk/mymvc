@@ -19,16 +19,17 @@
                                 </div>
                                 <div class="col-2">
                                     <div class="admin__c-panel-add-page-buttons">
-                                        <input type="submit" class="admin__c-panel-add-page-save" value="zapisz" name="save"
-                                            placeholder="wpisz nazwę strony" formaction="{{ baseUrl }}admin/page-save">
-                                        <input type="submit" class="admin__c-panel-add-page-save-back" value="zapisz>wróć"
-                                            name="save-back" placeholder="wpisz nazwę strony" formaction="{{ baseUrl }}admin/page-save-back">
+                                        <button type="submit" class="admin__c-panel-add-page-save" name="save"
+                                            placeholder="wpisz nazwę strony" formaction="{{ baseUrl }}admin/page-save">zapisz</button>
+                                        <button type="submit" class="admin__c-panel-add-page-save-back" name="save-back"
+                                            placeholder="wpisz nazwę strony" formaction="{{ baseUrl }}admin/page-save-back">zapisz>wróć</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <input type="hidden" name="page-id" value="{{ page.0.id }}">
                 <div class="row">
                     <div class="col-12">
                         <div class="admin__c-panel-icon-add--wrapper">
@@ -40,14 +41,9 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <div class="admin__c-panel-page-row">
-                            <div class="admin__c-panel-page-name">
-                                <a href="{{ baseUrl }}admin/page-edit" class="admin__c-panel-page-name-link">header</a>
-                            </div>
-                            <div class="admin__c-panel-icon-remove--wrapper">
-                                <a href="{{ baseUrl }}admin/page-remove" class="admin__c-panel-icon-remove">
-                                    {{ include("Admin/img/icon_trash.svg") }}
-                                </a>
+                        <div class="admin__c-panel-page-row header-footer">
+                            <div class="admin__c-panel-element-name">
+                                <p>header</p>
                             </div>
                         </div>
                     </div>
@@ -57,14 +53,9 @@
                 <!-------------------------->
                 <div class="row">
                     <div class="col-12">
-                        <div class="admin__c-panel-page-row">
-                            <div class="admin__c-panel-page-name">
-                                <a href="{{ baseUrl }}admin/page-edit" class="admin__c-panel-page-name-link">footer</a>
-                            </div>
-                            <div class="admin__c-panel-icon-remove--wrapper">
-                                <a href="{{ baseUrl }}admin/page-remove" class="admin__c-panel-icon-remove">
-                                    {{ include("Admin/img/icon_trash.svg") }}
-                                </a>
+                        <div class="admin__c-panel-page-row header-footer">
+                            <div class="admin__c-panel-element-name">
+                                <p>footer</p>
                             </div>
                         </div>
                     </div>
