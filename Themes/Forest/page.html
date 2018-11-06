@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+
+{# <pre>
+    {{ dump(page) }}
+</pre> #}
+
+{% for element in page %}
+    {% include element.url %}
+{% endfor %}
+<br><br><br>
+{# setting variable $page to null
+{% set page = null %}
+<pre>
+    {{ dump(page) }}
+</pre> #}
+{% endblock %}

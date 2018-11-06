@@ -5,8 +5,6 @@ use PDO;
 
 class Theme extends \Core\Model {
 
-    /*METHODS*/
-    //-------------------------------------------------------------
     public static function getThemeUrl() {
         try {
             // $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
@@ -19,5 +17,4 @@ class Theme extends \Core\Model {
         }
     }
 
-//END OF A CLASS---------------------------------------------------
 }

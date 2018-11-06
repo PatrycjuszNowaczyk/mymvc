@@ -7,9 +7,7 @@
 
 //direct routes
 //site routes
-$oRouter->addRoute('', ['controller' => 'home', 'action' => 'index']);
-$oRouter->addRoute('posts', ['controller' => 'posts', 'action' => 'index']);
-$oRouter->addRoute('gallery', ['controller' => 'gallery', 'action' => 'index']);
+$oRouter->addRoute('', ['controller' => 'home', 'action' => 'page']);
 
 //admin routes
 $oRouter->addRoute('admin', ['controller' => 'admin', 'action' => 'login', 'namespace' => 'Admin']);

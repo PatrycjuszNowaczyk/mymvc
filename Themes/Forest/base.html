@@ -1,12 +1,23 @@
 <!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{% block title %}{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+<html>
 
-{% block body %}{% endblock %}
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>
+            {% block title %}{% endblock %}
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ baseUrl }}../Themes/Forest/css/bootstrap-grid.min.css">
+        <link rel="stylesheet" href="{{ baseUrl }}../Themes/Forest/css/reset.css">
+        <link rel="stylesheet" href="{{ baseUrl }}../Themes/Forest/css/style.css">
+        <link rel="stylesheet" href="{{ baseUrl }}../Themes/Forest/css/style-responsive.css">
+    </head>
+    <body>
+        {% block content %}{% endblock %}
+        <script src="{{ baseUrl }}../Themes/Forest/js/jquery.js"></script>
+        <script src="{{ baseUrl }}../Themes/Forest/js/bootstrap.min.js"></script>
+        <script src="{{ baseUrl }}../Themes/Forest/js/scripts_footer.js"></script>
+    </body>
 
 </html>

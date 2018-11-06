@@ -49,14 +49,12 @@ class Admin extends \Core\Controller {
         unset($aData, $_GET);
     }
     public function pageSaveAction() {
-        if(!empty($_POST['page-name'])){
+        if (!empty($_POST['page-name'])) {
             ModelAdmin::pageSave();
-            sleep(0.25);
             $aData['page'] = ModelAdmin::pageGetLastEditedPage();
             View::render('Admin/page_edit.html', $aData);
             unset($_POST, $aData);
-        }
-        else{
+        } else {
             View::render('Admin/page_edit.html');
         }
     }

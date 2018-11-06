@@ -137,6 +137,81 @@ a:hover {
 }
 
 /*ADMIN MAIN TEMPLATE*/
+/*tooltip*/
+.tooltip-left::after {
+    opacity: 0;
+    z-index: 1000;
+}
+
+.tooltip-left:hover::after {
+    content: attr(data-tooltip);
+    display: block;
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 50%;
+    left: -5px;
+    transform: translate(-100%, -50%);
+    padding: 5px;
+    border: 2px solid #1269b0;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #1269b0;
+    white-space: nowrap;
+    filter: drop-shadow(0px 0px 3px rgba(0,0,0,0.25));
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out 0.3s;
+}
+
+.tooltip-right::after {
+    opacity: 0;
+    z-index: 1000;
+}
+
+.tooltip-right:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 50%;
+    right: -5px;
+    transform: translate(100%, -50%);
+    padding: 5px;
+    border: 2px solid #1269b0;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #1269b0;
+    white-space: nowrap;
+    filter: drop-shadow(0px 0px 3px rgba(0,0,0,0.25));
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out 0.3s;
+}
+
+.tooltip-top::after {
+    opacity: 0;
+    z-index: 1000;
+}
+
+.tooltip-top:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: -5px;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    padding: 5px;
+    border: 2px solid #1269b0;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #1269b0;
+    white-space: nowrap;
+    filter: drop-shadow(0px 0px 3px rgba(0,0,0,0.25));
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out 0.3s;
+}
+
+
 .admin__content {
     display: flex;
     min-height: 100vh;
@@ -171,6 +246,10 @@ a:hover {
     bottom: -27px;
 }
 
+.admin__c-panel-icon-add {
+    display: block;
+}
+
 .admin__c-panel-icon-add svg {
     fill: #1269b0;
     filter: drop-shadow(0px 0px 0px #1269b0);
@@ -199,7 +278,6 @@ a:hover {
     background: #ffffff;
     font-size: 18px;
     font-weight: 700;
-    /* text-transform: uppercase; */
     color: #1269b0;
     outline: 0px;
 }
@@ -275,7 +353,7 @@ a:hover {
     cursor: move;
 }
 
-.admin__c-panel-page-row.header-footer{
+.admin__c-panel-page-row.header-footer {
     cursor: default;
 }
 
@@ -290,7 +368,7 @@ a:hover {
     filter: drop-shadow(0px 0px 2px #777777);
 }
 
-.admin__c-panel-element-name{
+.admin__c-panel-element-name {
     color: white;
     font-weight: 700;
 }
@@ -299,6 +377,10 @@ a:hover {
     height: 24px;
     width: 24px;
     margin-left: auto;
+}
+
+.admin__c-panel-icon-remove {
+    display: block;
 }
 
 .admin__c-panel-icon-remove svg {
@@ -326,6 +408,8 @@ a:hover {
     justify-content: center;
     align-content: center;
     height: 30px;
+    margin-left: -15px;
+    margin-right: -15px;
     margin-bottom: 10px;
     background-color: #1269b0;
     transition: all 0.5s ease-in-out;
